@@ -1,5 +1,5 @@
-# Package Name
-Description
+# HKU UAS Mapping Package
+The HKU Unmanned Aerial Systems Team (HKU UAS) Mapping Python Package.
 
 **Usage:**
 ```
