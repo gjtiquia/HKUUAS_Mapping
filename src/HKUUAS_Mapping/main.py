@@ -3,6 +3,7 @@ For testing code
 """
 # import package src/HKUUAS_Mapping
 import resize
+import odm
 
 __author__ = "GJTiquia"
 __email__ = "GJTiquia"
@@ -14,6 +15,7 @@ if __name__ == "__main__":
     #       - resized images should be saved in a folder called "images" for orthophoto generation
     images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
     resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
+    orthophoto_save_path = ""
 
     # Step 1: Image Resize
     print("Step 1: Image Resize")
@@ -22,7 +24,10 @@ if __name__ == "__main__":
 
     # Step 2: Orthophoto generation from ODM
     # resized images must be in <path>/images/
+    # results will be saved at <path>
     print("Step 2: Orthophoto generation")
+    # odm.run()
+    odm.test(resized_images_path)
 
     # Step 3: Crop generated orthophoto
     # 

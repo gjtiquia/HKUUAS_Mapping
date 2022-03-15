@@ -20,11 +20,16 @@ def resize_all(path, new_path, resize_ratio):
         resize_ratio: the resize ratio
     """
 
+    # Check if given directory exists, if not then create the directory
+    if not os.path.exists(new_path):
+        os.makedirs(new_path)
+        print("Created directory '{}'".format(new_path))
+
     dirs = os.listdir(path)
+
     # Each image will have its own thread, added into the thread list
     threads = []
     for item in dirs:
-
         if os.path.isfile(path + item):
             resize_thread = ResizeThread(path, new_path, item, resize_ratio)
             resize_thread.start()
