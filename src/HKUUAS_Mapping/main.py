@@ -10,6 +10,9 @@ __email__ = "GJTiquia"
 
 
 if __name__ == "__main__":
+    # Remember to first start a NodeODM node in docker with the command
+    #   docker run -ti -p 3000:3000 opendronemap/nodeodm
+
     # Specify image directory paths
     # Note: - directory path MUST END WITH "/"
     #       - resized images should be saved in a folder called "images" for orthophoto generation
