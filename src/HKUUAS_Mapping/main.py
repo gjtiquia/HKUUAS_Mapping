@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # Step 2: Orthophoto generation from ODM
     # resized images must be in <path>/images/
-    
+    print("Ready for Step 2")
 
     # Step 3: Crop generated orthophoto
     # 

@@ -19,12 +19,23 @@ def resize_all(path, new_path, resize_ratio):
         new_path: directory to save the resized images, must end with /
         resize_ratio: the resize ratio
     """
+
     dirs = os.listdir(path)
+    # Each image will have its own thread, added into the thread list
+    threads = []
     for item in dirs:
 
         if os.path.isfile(path + item):
             resize_thread = ResizeThread(path, new_path, item, resize_ratio)
             resize_thread.start()
+            threads.append(resize_thread)
+    
+    # Wait until all threads have finished running
+    for thread in threads:
+        thread.join()
+    
+    print("[{}] All images resized!".format(time_log.get_time()))
+    print("Saved at '{}'".format(new_path))
 
 
 def resize_one(path, new_path, item, resize_ratio):
