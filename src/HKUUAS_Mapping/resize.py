@@ -1,8 +1,17 @@
+"""
+Resize Module
+"""
+
 from PIL import Image
 import os
-import transfer_exif
 import threading
-import time_log
+
+if __name__ == "__main__":
+    import transfer_exif
+    import time_log
+else:
+    from . import transfer_exif
+    from . import time_log
 
 
 def resize_all(path, new_path, resize_ratio):
@@ -49,3 +58,18 @@ class ResizeThread(threading.Thread):
     def run(self):
         resize_one(self.path, self.new_path, self.item, self.resize_ratio)
 
+
+# Test resize
+if __name__ == "__main__":
+    import sys
+    sys.path.append(".")
+
+    # Specify image directory paths
+    # Note: - directory path MUST END WITH "/"
+    #       - resized images should be saved in a folder called "images" for orthophoto generation
+    images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
+    resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
+
+    # Step 1: Image Resize
+    resize_ratio = 0.4
+    resize_all(images_path, resized_images_path, resize_ratio)
