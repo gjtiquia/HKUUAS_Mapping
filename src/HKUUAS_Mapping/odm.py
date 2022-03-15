@@ -12,9 +12,8 @@ Code Example:
 """
 
 import os
+import time_log
 from pathlib import Path
-# import sys
-# sys.path.append('..')
 from pyodm import Node, exceptions
 
 default_parameters = {
@@ -44,21 +43,22 @@ def run(images_path, parameters = default_parameters):
 
     try:
         # Start a task
-        print("Uploading images...")
+        print("[{}] Uploading images...".format(time_log.get_time()))
         task = node.create_task(images, parameters)
         print(task.info())
+        print("[{}] Running task...".format(time_log.get_time()))
 
         try:
             # This will block until the task is finished
             # or will raise an exception
             task.wait_for_completion()
 
-            print("Task completed, downloading results...")
+            print("[{}] Task completed, downloading results...".format(time_log.get_time()))
 
             # Retrieve results
             task.download_assets(results_path)
 
-            print("Assets saved in {}".format(results_path))
+            print("[{}] Assets saved in {}".format(time_log.get_time(), results_path))
         except exceptions.TaskFailedError as e:
             print("\n".join(task.output()))
 
