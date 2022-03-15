@@ -1,6 +1,8 @@
 # HKU UAS Mapping Package
 The HKU Unmanned Aerial Systems Team (HKU UAS) Mapping Python Package.
 
+For example usage, refer to tests/test.py
+
 **Usage:**
 ```
 Function(args, **kwargs)

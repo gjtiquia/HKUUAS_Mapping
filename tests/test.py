@@ -9,7 +9,7 @@ import sys
 path_root = Path(__file__).parents[1]
 sys.path.insert(0, str(path_root))
 
-# import src.HKUUAS_Mapping
+# import package src/HKUUAS_Mapping
 from src.HKUUAS_Mapping import resize
 
 __author__ = "GJTiquia"
