@@ -12,33 +12,40 @@ Code Example:
 """
 
 import os
+from pathlib import Path
 # import sys
 # sys.path.append('..')
-
 from pyodm import Node, exceptions
 
+default_parameters = {
+    "fast-orthophoto": True,
+    "feature-quality": "lowest",
+    "max-concurrency": 4,
+    "pc-quality": "lowest",
+    "orthophoto-resolution": 4,
+    "pc-tile": True,
+    "skip-report": True
+}
 
-def test(images_path):
-    pass
 
-
-def run(images_path):
+def run(images_path, parameters = default_parameters):
     # Add resized images into a list
     images = []
     dirs = os.listdir(images_path)
     for item in dirs:
         if os.path.isfile(images_path + item):
             images.append(images_path + item)
-    print(images)
-
+    
+    # Save path for results: parent directory of images_path
+    path = Path(images_path)
+    results_path = path.parent.absolute()
 
     node = Node("localhost", 3000)
 
     try:
         # Start a task
         print("Uploading images...")
-        task = node.create_task(['images/image_1.jpg', 'images/image_2.jpg'],
-                                {'dsm': True, 'orthophoto-resolution': 4})
+        task = node.create_task(images, parameters)
         print(task.info())
 
         try:
@@ -49,19 +56,9 @@ def run(images_path):
             print("Task completed, downloading results...")
 
             # Retrieve results
-            task.download_assets("./results")
+            task.download_assets(results_path)
 
-            print("Assets saved in ./results (%s)" % os.listdir("./results"))
-
-            # Restart task and this time compute dtm
-            task.restart({'dtm': True})
-            task.wait_for_completion()
-
-            print("Task completed, downloading results...")
-
-            task.download_assets("./results_with_dtm")
-
-            print("Assets saved in ./results_with_dtm (%s)" % os.listdir("./results_with_dtm"))
+            print("Assets saved in {}".format(results_path))
         except exceptions.TaskFailedError as e:
             print("\n".join(task.output()))
 

@@ -26,8 +26,7 @@ if __name__ == "__main__":
     # resized images must be in <path>/images/
     # results will be saved at <path>
     print("Step 2: Orthophoto generation")
-    # odm.run()
-    odm.test(resized_images_path)
+    odm.run()
 
     # Step 3: Crop generated orthophoto
     # 
