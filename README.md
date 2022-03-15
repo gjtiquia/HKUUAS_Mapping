@@ -1,7 +1,7 @@
 # HKU UAS Mapping Package
 The HKU Unmanned Aerial Systems Team (HKU UAS) Mapping Python Package.
 
-For example usage, refer to HKUUAS_Mapping/src/main.py
+For example usage, refer to HKUUAS_Mapping/src/KUUAS_Mapping/main.py
 
 Suggested image dataset for testing: https://github.com/pierotofy/drone_dataset_sheffield_park_2/tree/master
 
