@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # Step 1: Image Resize
     print("Step 1: Image Resize")
     resize_ratio = 0.4
-    # resize.resize_all(images_path, resized_images_path, resize_ratio)
+    resize.resize_all(images_path, resized_images_path, resize_ratio)
 
     # Step 2: Orthophoto generation from ODM
     # resized images must be in <path>/images/
