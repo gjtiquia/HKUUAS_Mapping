@@ -18,7 +18,6 @@ if __name__ == "__main__":
     #       - resized images should be saved in a folder called "images" for orthophoto generation
     images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
     resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
-    orthophoto_save_path = ""
 
     # Step 1: Image Resize
     print("Step 1: Image Resize")
