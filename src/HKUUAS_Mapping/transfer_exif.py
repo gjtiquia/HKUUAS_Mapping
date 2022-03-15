@@ -2,6 +2,15 @@ import exif
 
 
 def gps(image_path, new_image_path, save = True):
+    """
+    Copies GPS metadata from an image to another image.
+
+    Arguments:
+        image_path: path of image to copy GPS metadata.
+        new_image_path: path of image to overwrite GPS metadata.
+        save: save the changes.
+    """
+
     img = exif.Image(image_path)
 
     # Check if image has exif info

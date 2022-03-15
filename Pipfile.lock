@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "50541ebd1e358e19fd1abf7ff833c7dbd5e3484685f8b85c606d51ffe7892041"
+            "sha256": "f9348361bf3803bb378dbf4611259bd5b6cf732dbba2634c7a5fd33e74bf5213"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -16,6 +16,14 @@
         ]
     },
     "default": {
+        "exif": {
+            "hashes": [
+                "sha256:5e6c22ed1ee6aadc10df69d2cc4b90edd33e95ade2dce8b71b88f116e37f2e11",
+                "sha256:abf3c125167a9ccc780e190966a84559b54627b3dfee04100753222753f5ce30"
+            ],
+            "index": "pypi",
+            "version": "==1.3.4"
+        },
         "pillow": {
             "hashes": [
                 "sha256:011233e0c42a4a7836498e98c1acf5e744c96a67dd5032a6f666cc1fb97eab97",
@@ -56,6 +64,14 @@
             ],
             "index": "pypi",
             "version": "==9.0.1"
+        },
+        "plum-py": {
+            "hashes": [
+                "sha256:19f928518be99da2daaebdf59fccb8ad81dada55eb92fba68198b217ed8ccb49",
+                "sha256:4b244255982c002d7996cfa7f9a203cdcf5c87c7f4d57397cb647ec8f2cfd51f"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==0.7.5"
         }
     },
     "develop": {}

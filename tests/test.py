@@ -4,9 +4,11 @@ Test
 For testing code
 """
 
-import src.HKUUAS_Mapping.resize as resize
+from src.HKUUAS_Mapping.resize import resize_all
+
 
 __author__ = "GJTiquia"
 __email__ = "GJTiquia"
+
 
 

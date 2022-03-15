@@ -6,6 +6,15 @@ import time_log
 
 
 def resize_all(path, new_path, resize_ratio):
+    """
+    Resizes all the images from one directory by a resize ratio.
+    Saves the resized images into another directory.
+
+    Arguments:
+        path: directory of images to resize, must end with /
+        new_path: directory to save the resized images, must end with /
+        resize_ratio: the resize ratio
+    """
     dirs = os.listdir(path)
     for item in dirs:
 
