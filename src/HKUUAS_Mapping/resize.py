@@ -5,13 +5,8 @@ Resize Module
 from PIL import Image
 import os
 import threading
-
-if __name__ == "__main__":
-    import transfer_exif
-    import time_log
-else:
-    from . import transfer_exif
-    from . import time_log
+import transfer_exif
+import time_log
 
 
 def resize_all(path, new_path, resize_ratio):
