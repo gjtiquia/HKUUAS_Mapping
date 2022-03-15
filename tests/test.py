@@ -1,11 +1,6 @@
-"""
-Test
+# Tests your package
 
-For testing code
-"""
-
-__author__ = "GJTiquia"
-__email__ = "GJTiquia"
+__author__ = "you"
+__email__ = "your email"
 
 import unittest
-
