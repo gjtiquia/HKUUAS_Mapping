@@ -16,8 +16,8 @@ if __name__ == "__main__":
     # Specify image directory paths
     # Note: - directory path MUST END WITH "/"
     #       - resized images should be saved in a folder called "images" for orthophoto generation
-    images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
-    resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
+    images_path = "../../img/"
+    resized_images_path = "../../resized/"
 
     # Step 1: Image Resize
     print("Step 1: Image Resize")
@@ -32,9 +32,3 @@ if __name__ == "__main__":
 
     # Step 3: Crop generated orthophoto
     print("Step 3: Crop orthophoto")
-
-    
-
-
-
-
