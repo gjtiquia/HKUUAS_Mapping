@@ -1,5 +1,6 @@
 .DS_Store
 src/HKUUAS_Mapping/__pycache__
+./test_directory
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
