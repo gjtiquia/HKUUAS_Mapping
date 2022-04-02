@@ -5,17 +5,30 @@ For example usage, refer to HKUUAS_Mapping/src/HKUUAS_Mapping/main.py
 
 Suggested image dataset for testing: https://github.com/pierotofy/drone_dataset_sheffield_park_2/tree/master
 
-**Usage:**
+# Usage
+**Run as a package**
+1. Intialize a pipenv environment
+
+```bash
+pipenv shell
 ```
-Function(args, **kwargs)
 
-Args:
-    
-Kwargs:
+2. Install packages
 
-Returns:
+```bash
 
+pip install .
 ```
+
+3. Run OpenDroneMap Docker Container
+```bash
+bash run_odm_docker.sh
+```
+
+This will run the docker container (name: hkuuas-mapping) in detech mode.
+
+4. 
+
 
 **Example**
 ```
