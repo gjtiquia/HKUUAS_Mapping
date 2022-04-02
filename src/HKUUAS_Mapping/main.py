@@ -2,12 +2,12 @@
 For testing code
 """
 # import package src/HKUUAS_Mapping
+from HKUUAS_Mapping.mapping import Mapping
 import resize
 import odm
 
 __author__ = "GJTiquia"
 __email__ = "GJTiquia"
-
 
 if __name__ == "__main__":
     # Remember to first start a NodeODM node in docker with the command
