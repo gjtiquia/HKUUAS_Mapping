@@ -55,29 +55,29 @@ if __name__ == "__main__":
         # Use custom parameters in each step of the map generation
         #
         # Step 1: Image Resize
-        # print("Step 1: Image Resize")
-        # mapping.resize(
-        #     original_images_path = images_path,
-        #     resized_images_path = save_directory + "/resized_images/",
-        #     resize_ratio = 0.4
-        # )
+        print("Step 1: Image Resize")
+        mapping.resize(
+            original_images_path = images_path,
+            resized_images_path = save_directory + "/resized_images/",
+            resize_ratio = 0.4
+        )
 
-        # # Step 2: Orthophoto generation from ODM
-        # print("Step 2: Orthophoto generation")
-        # parameters = {
-        #     "fast-orthophoto": True,
-        #     "feature-quality": "medium", # ultra | high | medium | low | lowest
-        #     "max-concurrency": 4,
-        #     "pc-quality": "medium", # ultra | high | medium | low | lowest
-        #     "orthophoto-resolution": 4,
-        #     "pc-tile": True,
-        #     "skip-report": True,
-        # }
+        # Step 2: Orthophoto generation from ODM
+        print("Step 2: Orthophoto generation")
+        parameters = {
+            "fast-orthophoto": True,
+            "feature-quality": "medium", # ultra | high | medium | low | lowest
+            "max-concurrency": 4,
+            "pc-quality": "medium", # ultra | high | medium | low | lowest
+            "orthophoto-resolution": 4,
+            "pc-tile": True,
+            "skip-report": True,
+        }
 
-        # mapping.runODM(
-        #     resized_images_path = save_directory + "/resized_images/", 
-        #     odm_parameters = parameters
-        # )
+        mapping.runODM(
+            resized_images_path = save_directory + "/resized_images/", 
+            odm_parameters = parameters
+        )
 
         # Step 3: Crop generated orthophoto
         print("Step 3: Crop orthophoto")
