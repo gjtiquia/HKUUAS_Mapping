@@ -8,13 +8,13 @@ def read_shapefile(path):
     return gdf
 
 
-def write_shapefile(center, width, height, path, filename = "python_rect.shp"):
+def write_shapefile(center: tuple, width: float, height: float, path: str, filename = "Rectangle.shp") -> str:
     utm_center = utm.from_latlon(center[0], center[1])
     utm_x = utm_center[0]
     utm_y = utm_center[1]
     
-    x_offset = width / 2.0
-    y_offset = height / 2.0
+    x_offset = height / 2.0
+    y_offset = width / 2.0
 
     points = [(-x_offset, -y_offset), (-x_offset, y_offset), (x_offset, y_offset), (x_offset, -y_offset), (-x_offset, -y_offset)]
     coordinates = [(i[0] + utm_x, i[1] + utm_y) for i in points]
@@ -22,9 +22,11 @@ def write_shapefile(center, width, height, path, filename = "python_rect.shp"):
     # EPSG:4326 is the standard latlongpip
     # EPSG:32617 is UTM zone 17
     shapefile = create_polygon(coordinates, "Rectangle", 32617)
-    # shapefile.to_file(path + filename)
+    shapefile.to_file(path + filename)
 
-    # print("Shapefile written and saved at " + path + filename)
+    print("Shapefile written and saved at " + path + filename)
+
+    return path + filename
 
 
 def create_polygon(coordinates, polygon_name, epsg):
@@ -36,7 +38,7 @@ def create_polygon(coordinates, polygon_name, epsg):
     return gdf
 
 
-def crop_from_shapefile(geotiff_path, shapefile_path, save_path, filename = "python_cropped.tif"):
+def crop_from_shapefile(geotiff_path: str, shapefile_path: str, save_path: str, filename = "cropped_map.tif"):
     # Reference from terminal command:
     #
     # gdalwarp -t_srs EPSG:32617 -of GTiff -cutline 
@@ -60,11 +62,15 @@ def crop_from_shapefile(geotiff_path, shapefile_path, save_path, filename = "pyt
 
     gdal.Warp(save_path + filename, geotiff, options = args)
 
-    print("Cropped, saved at " + save_path + filename)
+    print("Map cropped, saved at " + save_path + filename)
 
 
-def run(map_center_coordinates, map_height):
-    pass
+def run(geotiff_path, save_directory, map_center_coordinates, map_height):
+    # Required ratio is 16:9
+    map_width = 9 * map_height / 16
+    shapefile_path = write_shapefile(map_center_coordinates, map_width, map_height, save_directory)
+    crop_from_shapefile(geotiff_path, shapefile_path, save_directory)
+
 
 if __name__ == "__main__":
     latlon_center = (28.039819, -82.697501)

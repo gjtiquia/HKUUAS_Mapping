@@ -16,8 +16,8 @@ if __name__ == "__main__":
     # Competition Information from Interoperability Server
     competition_info = CompetitionInfo(
         boundary_coordinate_list = [],
-        map_center_coordinate = (0,0),
-        map_height = 0.0 # in feet
+        map_center_coordinates = (28.039819, -82.697501),
+        map_height = 300 # in feet
     )
     
     # Camera Specs
@@ -65,9 +65,9 @@ if __name__ == "__main__":
         print("Step 2: Orthophoto generation")
         parameters = {
             "fast-orthophoto": True,
-            "feature-quality": "low",
+            "feature-quality": "low", # ultra | high | medium | low | lowest
             "max-concurrency": 4,
-            "pc-quality": "low",
+            "pc-quality": "low", # ultra | high | medium | low | lowest
             "orthophoto-resolution": 4,
             "pc-tile": True,
             "skip-report": True,
@@ -80,3 +80,7 @@ if __name__ == "__main__":
 
         # Step 3: Crop generated orthophoto
         print("Step 3: Crop orthophoto")
+        mapping.crop_map(
+            geotiff_path = save_directory + "/odm_orthophoto/odm_orthophoto.tif",
+            save_directory = save_directory
+        )
