@@ -8,18 +8,8 @@ __email__ = "tom@stocksgram.com"
 import resize
 import odm
 import crop
-
-
-class CameraSpecs:
-
-    def __init__(self, focal_length = None):
-        self.focal_length = focal_length
-
-        self.gsd = self.calculate_gsd()
-    
-
-    def calculate_gsd(self):
-        pass
+import camera_specs
+import competition_info
 
 
 class Mapping:
@@ -36,25 +26,19 @@ class Mapping:
     def __init__(
         self, 
 
-        cameraSpecs,
-
-        boundary_coordinate_list, 
-        map_center_coordinate, 
-        map_height,
+        camera_specs,
+        competition_info,
 
         images_path, 
         save_directory, 
 
-        resize_ratio=0.4, 
+        resize_ratio = 0.4, 
         odm_parameters = _default_odm_parameters
     ):
 
         # Initialize class variables
-        self.cameraSpecs = cameraSpecs
-
-        self.boundary_coordinate_list = boundary_coordinate_list
-        self.map_center_coordinate = map_center_coordinate
-        self.map_height = map_height
+        self.camera_specs = camera_specs
+        self.competition_info = competition_info
 
         self.images_path = images_path
         self.save_directory = save_directory
@@ -77,7 +61,7 @@ class Mapping:
 
         # Aim for taking within 60 images
         # Aim for overlap of at least 50%
-        # Flight altitude is capped
+        # Flight altitude is capped between the minimum and maximum specified by the competition
 
 
         return waypoint_list, checkpoint_list, flight_altitude

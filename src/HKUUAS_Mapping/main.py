@@ -1,8 +1,10 @@
 """
-For testing code
+Package Usage Example
 """
 # import package src/HKUUAS_Mapping
-from mapping import Mapping, CameraSpecs
+from mapping import Mapping
+from camera_specs import CameraSpecs
+from competition_info import CompetitionInfo
 
 __author__ = "GJTiquia"
 __email__ = "GJTiquia"
@@ -11,13 +13,15 @@ if __name__ == "__main__":
     # Remember to first Run OpenDroneMap Docker Container
     # Check README.md for more details
 
-    # Information from Interoperability Server
-    boundary_coordinate_list = []
-    map_center_coordinate = (0,0)
-    map_height = 0.0 # in feet
-
+    # Competition Information from Interoperability Server
+    competition_info = CompetitionInfo(
+        boundary_coordinate_list = [],
+        map_center_coordinate = (0,0),
+        map_height = 0.0 # in feet
+    )
+    
     # Camera Specs
-    cameraSpecs = CameraSpecs(
+    camera_specs = CameraSpecs(
         focal_length = 5
     )
 
@@ -27,12 +31,8 @@ if __name__ == "__main__":
 
     # Create Mapping object
     mapping = Mapping(
-        cameraSpecs,
-        
-        boundary_coordinate_list,
-        map_center_coordinate,
-        map_height,
-
+        camera_specs,
+        competition_info,
         images_path, 
         save_directory
     )
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 
         # Step 2: Orthophoto generation from ODM
         print("Step 2: Orthophoto generation")
-        odm_parameters = {
+        parameters = {
             "fast-orthophoto": True,
             "feature-quality": "low",
             "max-concurrency": 4,
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
         mapping.runODM(
             resized_images_path = save_directory + "/resized_images/", 
-            odm_parameters = odm_parameters
+            odm_parameters = parameters
         )
 
         # Step 3: Crop generated orthophoto
