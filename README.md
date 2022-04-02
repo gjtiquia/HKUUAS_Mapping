@@ -16,8 +16,7 @@ pipenv shell
 2. Install packages
 
 ```bash
-
-pip install .
+bash install_packages.sh
 ```
 
 3. Run OpenDroneMap Docker Container
