@@ -16,8 +16,11 @@ if __name__ == "__main__":
     # Specify image directory paths
     # Note: - directory path MUST END WITH "/"
     #       - resized images should be saved in a folder called "images" for orthophoto generation
-    images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
-    resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
+    # images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2/images/"
+    # resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/test_directory/sheffield_park_2_resized/images/"
+
+    images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/2021_03_30_mapping_dji/images/"
+    resized_images_path = "/Users/gjtiquia/Documents/GJ MacBookPro Documents/FYP Mapping/2021_03_30_mapping_dji_resized_quality_medium/images/"
 
     # Step 1: Image Resize
     print("Step 1: Image Resize")
@@ -28,7 +31,17 @@ if __name__ == "__main__":
     # resized images must be in <path>/images/
     # results will be saved at <path>
     print("Step 2: Orthophoto generation")
-    odm.run(resized_images_path)
+    odm_parameters = {
+        "fast-orthophoto": True,
+        "feature-quality": "medium",
+        "max-concurrency": 4,
+        "pc-quality": "medium",
+        "orthophoto-resolution": 4,
+        "pc-tile": True,
+        "skip-report": True,
+        # "min-num-features": 8000
+    }
+    odm.run(resized_images_path, odm_parameters)
 
     # Step 3: Crop generated orthophoto
     print("Step 3: Crop orthophoto")

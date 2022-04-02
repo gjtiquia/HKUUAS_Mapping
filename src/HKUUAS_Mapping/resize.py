@@ -30,6 +30,10 @@ def resize_all(path, new_path, resize_ratio):
     # Each image will have its own thread, added into the thread list
     threads = []
     for item in dirs:
+
+        if (item == ".DS_Store"):
+            continue;
+
         if os.path.isfile(path + item):
             resize_thread = ResizeThread(path, new_path, item, resize_ratio)
             resize_thread.start()
