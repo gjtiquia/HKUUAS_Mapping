@@ -16,18 +16,8 @@ import time_log
 from pathlib import Path
 from pyodm import Node, exceptions
 
-default_parameters = {
-    "fast-orthophoto": True,
-    "feature-quality": "lowest",
-    "max-concurrency": 4,
-    "pc-quality": "lowest",
-    "orthophoto-resolution": 4,
-    "pc-tile": True,
-    "skip-report": True
-}
 
-
-def run(images_path, parameters = default_parameters):
+def run(images_path, parameters):
     # Add resized images into a list
     images = []
     dirs = os.listdir(images_path)

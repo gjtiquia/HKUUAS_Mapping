@@ -32,7 +32,7 @@ def resize_all(path, new_path, resize_ratio):
     for item in dirs:
 
         if (item == ".DS_Store"):
-            continue;
+            continue
 
         if os.path.isfile(path + item):
             resize_thread = ResizeThread(path, new_path, item, resize_ratio)

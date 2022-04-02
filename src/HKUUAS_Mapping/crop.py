@@ -63,6 +63,9 @@ def crop_from_shapefile(geotiff_path, shapefile_path, save_path, filename = "pyt
     print("Cropped, saved at " + save_path + filename)
 
 
+def run(map_center_coordinates, map_height):
+    pass
+
 if __name__ == "__main__":
     latlon_center = (28.039819, -82.697501)
     width = 45
