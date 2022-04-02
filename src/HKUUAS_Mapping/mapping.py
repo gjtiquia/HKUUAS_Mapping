@@ -120,11 +120,11 @@ class Mapping:
 
 
     def generate_map(self):
-        print("Resizing Images...")
-        self.resize()
+        # print("Resizing Images...")
+        # self.resize()
 
-        print("Generating orthophoto with ODM...")
-        self.runODM()
+        # print("Generating orthophoto with ODM...")
+        # self.runODM()
 
         print("Cropping orthophoto...")
         self.crop_map()

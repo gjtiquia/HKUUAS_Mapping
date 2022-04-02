@@ -10,6 +10,7 @@ pyodm = "*"
 geopandas = "*"
 utm = "*"
 shapely = "*"
+pyproj = "*"
 
 [dev-packages]
 

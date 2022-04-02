@@ -16,8 +16,9 @@ if __name__ == "__main__":
     # Competition Information from Interoperability Server
     competition_info = CompetitionInfo(
         boundary_coordinate_list = [],
-        map_center_coordinates = (28.039819, -82.697501),
-        map_height = 300 # in feet
+        # map_center_coordinates = (28.039819, -82.697501), # For sheffield_park dataset
+        map_center_coordinates = (22.274045, 114.122729), # For Mt. Davis - Hong Kong Image Set
+        map_height = 400 # in feet
     )
     
     # Camera Specs
@@ -54,29 +55,29 @@ if __name__ == "__main__":
         # Use custom parameters in each step of the map generation
         #
         # Step 1: Image Resize
-        print("Step 1: Image Resize")
-        mapping.resize(
-            original_images_path = images_path,
-            resized_images_path = save_directory + "/resized_images/",
-            resize_ratio = 0.5
-        )
+        # print("Step 1: Image Resize")
+        # mapping.resize(
+        #     original_images_path = images_path,
+        #     resized_images_path = save_directory + "/resized_images/",
+        #     resize_ratio = 0.4
+        # )
 
-        # Step 2: Orthophoto generation from ODM
-        print("Step 2: Orthophoto generation")
-        parameters = {
-            "fast-orthophoto": True,
-            "feature-quality": "low", # ultra | high | medium | low | lowest
-            "max-concurrency": 4,
-            "pc-quality": "low", # ultra | high | medium | low | lowest
-            "orthophoto-resolution": 4,
-            "pc-tile": True,
-            "skip-report": True,
-        }
+        # # Step 2: Orthophoto generation from ODM
+        # print("Step 2: Orthophoto generation")
+        # parameters = {
+        #     "fast-orthophoto": True,
+        #     "feature-quality": "medium", # ultra | high | medium | low | lowest
+        #     "max-concurrency": 4,
+        #     "pc-quality": "medium", # ultra | high | medium | low | lowest
+        #     "orthophoto-resolution": 4,
+        #     "pc-tile": True,
+        #     "skip-report": True,
+        # }
 
-        mapping.runODM(
-            resized_images_path = save_directory + "/resized_images/", 
-            odm_parameters = parameters
-        )
+        # mapping.runODM(
+        #     resized_images_path = save_directory + "/resized_images/", 
+        #     odm_parameters = parameters
+        # )
 
         # Step 3: Crop generated orthophoto
         print("Step 3: Crop orthophoto")
